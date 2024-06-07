@@ -11,7 +11,7 @@
 // then the next step is to give each a sort value
 // based on that count (frequency)
 
-// Let's create an object type of UniqueByte
+// Let's create an array of unique byte objects
 // with 3 properties - value, frequency, and sort rank
 
 // Let's create a simple message to encode first 
@@ -20,16 +20,38 @@ let unique_bytes = []
 
 // get the value of each letter 
 for (let i=0;i<msg.length;i++) {
-  unique_bytes.push( {
-    value: msg.charCodeAt(i), // 0 - 255
-    frequency: 1, // whatever the count is 
-    sort_rank: 0 // rank based on its frequency
-  } )
+  // we should only push the object on the stack if 
+  // it doesn't already exist in the list
+  // if it does exist we increment the frequency value
+  updated = false
+  for (let u in unique_bytes) {
+    if(msg.charCodeAt(i) === unique_bytes[u].value) {
+      unique_bytes[u].frequency+=1
+      updated = true 
+    }     
+  }  
+  if (!updated) {
+    unique_bytes.push( {
+      value: msg.charCodeAt(i), // 0 - 255
+      frequency: 1, // whatever the count is 
+      sort_rank: 0 // rank based on its frequency
+    } )    
+  }  
 }
 console.log("Unique Byte list created.")
-var c = 0
+
+var c = 0 // the current unique byte number
 for (let u in unique_bytes) {
-  console.log ("Object " + c + " | Value " + unique_bytes[u].value + " | Frequency " +  unique_bytes[u].frequency + " | Sort Rank " +  unique_bytes[u].sort_rank)
+  console.log ("Unique Byte " + c + 
+    " | Character '" + String.fromCharCode(unique_bytes[u].value) + 
+    "' | Value " + 
+    unique_bytes[u].value + 
+    " | Frequency " +  
+    unique_bytes[u].frequency + 
+    " | Sort Rank " +  
+    unique_bytes[u].sort_rank)
   c+=1
 }
+
+
  
