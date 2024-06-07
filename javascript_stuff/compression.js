@@ -15,7 +15,7 @@
 // with 3 properties - value, frequency, and sort rank
 
 // Let's create a simple message to encode first 
-let msg = "test"
+let msg = "This is an example of an larger test message that will calculate Frequency of unique bytes"
 let unique_bytes = []
 
 // get the value of each letter 
@@ -38,19 +38,20 @@ for (let i=0;i<msg.length;i++) {
     } )    
   }  
 }
-console.log("Unique Byte list created.")
-
-var c = 0 // the current unique byte number
+console.log("Unique Byte list created with " + unique_bytes.length + " items from a total of " + msg.length + " bytes.")
+unique_bytes.sort((a, b) => b.frequency - a.frequency);
+var c = 1 // the current unique byte number
 for (let u in unique_bytes) {
-  console.log ("Unique Byte " + c + 
-    " | Character '" + String.fromCharCode(unique_bytes[u].value) + 
+  unique_bytes[u].sort_rank = c
+  console.log ("Unique Byte " + 
+    "Character '" + String.fromCharCode(unique_bytes[u].value) + 
     "' | Value " + 
     unique_bytes[u].value + 
     " | Frequency " +  
     unique_bytes[u].frequency + 
     " | Sort Rank " +  
     unique_bytes[u].sort_rank)
-  c+=1
+  c+=1  
 }
 
 
