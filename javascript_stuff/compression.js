@@ -15,17 +15,21 @@
 // with 3 properties - value, frequency, and sort rank
 
 // Let's create a simple message to encode first 
-const msg = "test"
-const unique_bytes[]
+let msg = "test"
+let unique_bytes = []
 
 // get the value of each letter 
-for (i=0;i<msg.length;i++) {
-  unique_bytes.push( new UniqueByte {
+for (let i=0;i<msg.length;i++) {
+  unique_bytes.push( {
     value: msg.charCodeAt(i), // 0 - 255
     frequency: 1, // whatever the count is 
     sort_rank: 0 // rank based on its frequency
   } )
 }
-
 console.log("Unique Byte list created.")
+var c = 0
+for (let u in unique_bytes) {
+  console.log ("Object " + c + " | Value " + unique_bytes[u].value + " | Frequency " +  unique_bytes[u].frequency + " | Sort Rank " +  unique_bytes[u].sort_rank)
+  c+=1
+}
  
