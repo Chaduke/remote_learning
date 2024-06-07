@@ -14,8 +14,18 @@
 // Let's create an object type of UniqueByte
 // with 3 properties - value, frequency, and sort rank
 
-const UniqueByte = {
-    value: 0, // 0 - 255
-    frequency: 0, // whatever the count is 
+// Let's create a simple message to encode first 
+const msg = "test"
+const unique_bytes[]
+
+// get the value of each letter 
+for (i=0;i<msg.length;i++) {
+  unique_bytes.push( new UniqueByte {
+    value: msg.charCodeAt(i), // 0 - 255
+    frequency: 1, // whatever the count is 
     sort_rank: 0 // rank based on its frequency
-  };
+  } )
+}
+
+console.log("Unique Byte list created.")
+ 
